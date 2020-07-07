@@ -124,7 +124,11 @@ int add_cmdline(int p_argc, char **p_args) {
 };
 
 - (BOOL)prefersStatusBarHidden {
-	return YES;
+	if (GLOBAL_GET("display/window/ios/hide_statusbar")) {
+		return YES;
+	} else {
+		return NO;
+	}
 }
 
 - (BOOL)prefersHomeIndicatorAutoHidden {
